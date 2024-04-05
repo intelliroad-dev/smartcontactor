@@ -1,0 +1,8 @@
+// ErrorDefinitions.h
+#ifndef ERROR_DEFINITIONS_H
+#define ERROR_DEFINITIONS_H
+
+#define ERR_SD_NOT_DETECTED "ERR: SD 01"
+#define ERR_JSON_READ "ERR: JSON 01"
+
+#endif // ERROR_DEFINITIONS_H

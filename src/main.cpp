@@ -1,18 +1,20 @@
-#include <Arduino.h>
+// src\main.cpp
+#include "ConfigModule.hpp"
+#include "AllModule/SDFunctions.hpp"
+#include "AllModule/JSONFunctions.hpp"
 
-// put function declarations here:
-int myFunction(int, int);
-
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Firmware Version: " + String(VERSION));
+  initializeSD();
+  if (!sdNotDetected)
+  {
+    readCredentialsFromJSON();
+  }
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void loop()
+{
+  // Lógica de programa principal aquí...
 }
