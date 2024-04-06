@@ -3,6 +3,7 @@
 #include "AllModule/WiFiFunctions.hpp"
 #include "AllModule/EthernetFunctions.hpp"
 #include "AllModule/NetworkFunctions.hpp"
+#include "AllModule/RGBFunctions.hpp"
 #include "AllModule/ButtonFunctions.hpp"
 
 void initializeModule()
@@ -12,7 +13,9 @@ void initializeModule()
     ;
   Serial.println("Firmware Version: " + String(VERSION));
 
+  initializeRGB();
   initializeButton();
+  setColor(BLACK);
 
   initializeSD();
   if (!sdNotDetected)

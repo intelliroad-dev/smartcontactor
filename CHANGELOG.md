@@ -30,3 +30,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Minor bug fixes and performance improvements in network connection routines.
+
+## [0.1.7] - 2024-03-06
+
+### Added
+- `RGBFunctions.hpp` with functionalities to control an RGB LED, enabling the device to display different colors (WHITE, MAGENTA, YELLOW, CYAN) based on specific conditions or actions.
+- `ButtonFunctions.hpp` introduces advanced button handling that allows the device to trigger different actions based on the duration of the button press. This includes setting the RGB LED to different colors depending on how long the button is pressed and executing specific actions when the button is released.
+- Function `handleChangeInterface()` in `NetworkFunctions.hpp`, allowing dynamic switching between WiFi and Ethernet network interfaces based on user input via a button press. This function also toggles the `priorityWiFi` flag to determine the network interface priority.
+
+### Changed
+- Enhanced button debounce logic in `ButtonFunctions.hpp` to improve the accuracy of press duration detection and prevent false triggers.
+- Updated network connection handling to incorporate dynamic interface switching through the `handleChangeInterface()` function, enhancing the device's network flexibility.
+
+### Fixed
+- Minor bug fixes in network connection logic to ensure reliable switching between WiFi and Ethernet connections.
+- Adjustments to RGB LED color display timing to synchronize with button press durations more accurately.
+
+This update significantly enhances the device's interactive capabilities, offering users a more intuitive and responsive way to control its network connectivity and visual feedback through the RGB LED. The introduction of time-sensitive button actions opens up new possibilities for user interaction and device functionality.

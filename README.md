@@ -43,3 +43,28 @@ The project supports dynamic switching between Wi-Fi and Ethernet connections ba
 | Function                 | Description                                                   |
 |--------------------------|---------------------------------------------------------------|
 | `switchNetworkInterface()` | Based on the `priorityWiFi` flag within the `NetworkCredentials` structure, this function attempts to switch the network interface from Wi-Fi to Ethernet or vice versa. It ensures the device remains online by switching to the alternative interface if the preferred one fails to connect. |
+| `handleChangeInterface()` | Toggles the network interface priority between WiFi and Ethernet, and attempts to switch to the newly prioritized interface. |
+
+
+#### RGB Handling Functions
+
+The project supports defines the functionalities necessary to control an RGB LED connected. It provides an interface to initialize the RGB LED and to change its color based on predefined color enumerations.
+
+| Function        | Description                                                  |
+|-----------------|--------------------------------------------------------------|
+| `initializeRGB()` | Initializes the RGB LED by setting up the GPIO pins as outputs and setting the LED to off (BLACK). |
+| `setColor(Color color)` | Changes the color of the RGB LED to the specified color. The function accepts an enumeration that represents various colors such as BLACK, RED, GREEN, BLUE, MAGENTA, YELLOW, CYAN, and WHITE. |
+
+#### Button Handling Functions
+
+This section describes the functionality for handling button interactions, allowing the device to trigger specific actions based on how long the button is pressed. The button logic supports multiple time-sensitive actions, offering a dynamic way to interact with the device.
+
+
+| Function             | Description                                                   |
+|----------------------|---------------------------------------------------------------|
+| `initializeButton()` | Initializes the button pin as an input with a pull-up resistor, preparing it for interaction. |
+| `printColorState(ButtonColorState colorState)` | Prints the color state to the Serial monitor as the button is pressed, providing real-time feedback on the interaction. |
+| `checkButtonPress()` | Monitors and debounces the button press, changing the RGB LED color according to the press duration. After releasing the button, it triggers specific actions based on the last color state: WHITE for a short press, MAGENTA for a 2-second press, YELLOW for a 5-second press, and CYAN for an 8-second press. Additionally, releasing the button after reaching the CYAN state will trigger the `handleChangeInterface()` function, demonstrating a practical application of button press durations. |
+
+This modular approach to button handling allows for easy expansion or modification of the button's behavior and associated actions within the device's functionality.
+

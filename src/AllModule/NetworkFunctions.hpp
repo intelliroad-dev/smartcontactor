@@ -1,3 +1,7 @@
+// src\AllModule\NetworkFunctions.hpp
+#ifndef NETWORKFUNCTIONS_HPP
+#define NETWORKFUNCTIONS_HPP
+
 void switchNetworkInterface()
 {
     disconnectEthernet();
@@ -24,3 +28,11 @@ void switchNetworkInterface()
 
     Serial.println(isConnected ? "Online" : "Offline");
 }
+
+void handleChangeInterface()
+{
+    credentials.priorityWiFi = !credentials.priorityWiFi;
+    switchNetworkInterface();
+}
+
+#endif src\AllModule\NetworkFunctions.hpp
