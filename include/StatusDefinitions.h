@@ -1,0 +1,10 @@
+// include\StatusDefinitions.h
+#ifndef STATUS_DEFINITIONS_H
+#define STATUS_DEFINITIONS_H
+
+#define STA_SD_DETECTED_OK "STA: SD OK"
+#define STA_JSON_READ_OK "STA: JSON OK"
+#define STA_WIFI_CONNECT_OK "STA: WIFI OK"
+#define STA_ETH_CONNECT_OK "STA: ETH OK"
+
+#endif // STATUS_DEFINITIONS_H

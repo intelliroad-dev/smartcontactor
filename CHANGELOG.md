@@ -15,3 +15,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Minor bug fixes in JSON file reading.
+
+## [0.1.5] - 2024-03-06
+
+### Added
+- Ethernet connectivity support using the Arduino Ethernet library for projects requiring wired connections.
+- `initializeEthernet`, `disconnectEthernet`, and `isConnectedToEthernet` functions in `EthernetFunctions.hpp` to manage Ethernet connections.
+- `switchNetworkInterface` function in `NetworkFunctions.hpp` to allow dynamic switching between Wi-Fi and Ethernet based on connection availability and priority settings.
+- Error handling for failed Ethernet connections, with a new error code `ERR: ETH 01` defined in `ErrorDefinitions.h`.
+
+### Changed
+- Updated `ConfigModule.hpp` to include definitions and global variables supporting Ethernet connectivity and network switching logic.
+- Modified the main application logic to attempt network connection using Ethernet if Wi-Fi is not available or prioritized.
+
+### Fixed
+- Minor bug fixes and performance improvements in network connection routines.

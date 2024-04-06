@@ -24,11 +24,10 @@ void readCredentialsFromJSON()
 
     credentials.ssid = doc["ssid"].as<String>();
     credentials.password = doc["password"].as<String>();
-    Serial.println("Loadded credentials:");
-    Serial.println("SSID: " + credentials.ssid);
-    Serial.println("Password: " + credentials.password);
+    credentials.priorityWiFi = doc["prioWiFi"].as<bool>();
 
     file.close();
+    Serial.println(STA_JSON_READ_OK);
 }
 
 #endif // JSONFUNCTIONS_HPP

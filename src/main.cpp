@@ -1,20 +1,32 @@
 // src\main.cpp
 #include "ConfigModule.hpp"
-#include "AllModule/SDFunctions.hpp"
-#include "AllModule/JSONFunctions.hpp"
+#include "InitializeModule.hpp"
+
+void handleButtonPress()
+{
+  credentials.priorityWiFi = !credentials.priorityWiFi;
+  switchNetworkInterface();
+}
 
 void setup()
 {
-  Serial.begin(115200);
-  Serial.println("Firmware Version: " + String(VERSION));
-  initializeSD();
-  if (!sdNotDetected)
-  {
-    readCredentialsFromJSON();
-  }
+  initializeModule();
 }
 
 void loop()
 {
-  // Lógica de programa principal aquí...
+  static unsigned long lastDebounceTime = 0;
+  static bool lastButtonState = HIGH;
+  unsigned long debounceDelay = 50;
+
+  bool currentButtonState = digitalRead(BUTTON_PIN);
+
+  if (currentButtonState == LOW && lastButtonState == HIGH && (millis() - lastDebounceTime) > debounceDelay)
+  {
+    handleButtonPress();
+
+    lastDebounceTime = millis();
+  }
+
+  lastButtonState = currentButtonState;
 }

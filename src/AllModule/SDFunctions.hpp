@@ -18,6 +18,10 @@ void initializeSD()
     {
         handleSDError();
     }
+    else
+    {
+        Serial.println(STA_SD_DETECTED_OK);
+    }
 }
 
 #endif // SDFUNCTIONS_HPP
